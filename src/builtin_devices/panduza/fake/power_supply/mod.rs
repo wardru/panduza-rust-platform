@@ -8,13 +8,7 @@ use panduza_core::device::{ traits::DeviceActions, traits::Producer };
 
 use panduza_core::interface::builder::Builder as InterfaceBuilder;
 
-
-mod itf_fake_bpc;
-mod itf_fake_voltmeter;
-
-
 struct FakePowerSupply;
-
 
 impl DeviceActions for FakePowerSupply {
 
@@ -22,10 +16,10 @@ impl DeviceActions for FakePowerSupply {
     fn interface_builders(&self, _device: &Device) 
     -> Result<Vec<InterfaceBuilder>, PlatformError>
     {
-        let mut list = Vec::new();
-        list.push(
-            itf_fake_bpc::build("channel")
-        );
+        let list = Vec::new();
+        //list.push(
+        //    itf_fake_bpc::build("channel")
+        //);
 
         return Ok(list);
     }
@@ -50,4 +44,3 @@ impl Producer for DeviceProducer {
     }
 
 }
-
